@@ -7,7 +7,7 @@ conn.start
 ch = conn.create_channel
 x = ch.topic('topics')
 
-q = ch.queue('', durable: true)
+q = ch.queue('message_1', durable: true)
 q.bind(x, routing_key: '*.message_1')
 
 ch.prefetch(1)
