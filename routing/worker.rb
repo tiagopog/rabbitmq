@@ -5,15 +5,16 @@ conn = Bunny.new
 conn.start
 
 ch = conn.create_channel
-x = ch.fanout('messages')
+x = ch.direct('messages_2')
 
 q = []
 
 q[1] = ch.queue('messages_1', durable: true)
-q[1].bind(x)
+q[1].bind(x, routing_key: 'messages_1')
 
 q[2] = ch.queue('messages_2', durable: true)
-q[2].bind(x)
+q[2].bind(x, routing_key: 'messages_2')
+q[2].bind(x, routing_key: 'messages_3')
 
 ch.prefetch(1)
 

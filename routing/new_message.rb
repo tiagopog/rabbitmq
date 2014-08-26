@@ -5,7 +5,7 @@ conn = Bunny.new
 conn.start
 
 ch = conn.create_channel
-x = ch.fanout('messages')
+x = ch.direct('messages_2')
 
 msg  = ARGV.empty? ? '1 Empty body' : ARGV.join(' ')
 
