@@ -1,7 +1,5 @@
 # RabbitMQ Examples
 
-Examples for testing some features of the pub/sub server RabbitMQ.
-
 Install the Bunny gem: 
 
 ```shell
